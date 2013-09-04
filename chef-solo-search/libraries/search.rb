@@ -32,6 +32,7 @@ if Chef::Config[:solo]
     require 'treetop'
   rescue LoadError
     run_context = Chef::RunContext.new(Chef::Node.new, {}, Chef::EventDispatch::Dispatcher.new)
+    Chef::Resource::ChefGem.new("ployglot", run_context).run_action(:install)
     chef_gem = Chef::Resource::ChefGem.new("treetop", run_context)
     chef_gem.version('>= 1.4')
     chef_gem.run_action(:install)
