@@ -24,7 +24,7 @@ package node[:mongodb][:package_name] do
   version node[:mongodb][:package_version]
 end
 
-needs_mongo_gem = (node.recipe?("mongodb::replicaset") or node.recipe?("mongodb::mongos"))
+needs_mongo_gem = true
 
 if needs_mongo_gem
   # install the mongo ruby gem at compile time to make it globally available
